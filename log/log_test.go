@@ -14,7 +14,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ONSdigital/go-ns/common"
+	"github.com/methods/go-methods-lib/common"
 	"github.com/mgutz/ansi"
 	. "github.com/smartystreets/goconvey/convey"
 )
@@ -203,7 +203,7 @@ func TestError(t *testing.T) {
 	}
 
 	Convey("Error", t, func() {
-		logData := Data{ "message": "original message", "error": errors.New("original error")}
+		logData := Data{"message": "original message", "error": errors.New("original error")}
 		Error(errors.New("test error"), logData)
 		So(eventName, ShouldEqual, "error")
 		So(eventCorrelationKey, ShouldEqual, "")
@@ -215,7 +215,7 @@ func TestError(t *testing.T) {
 	})
 
 	Convey("ErrorCtx", t, func() {
-		logData := Data{ "message": "original message", "error": errors.New("original error")}
+		logData := Data{"message": "original message", "error": errors.New("original error")}
 		ErrorCtx(context.Background(), errors.New("test error"), logData)
 		So(eventName, ShouldEqual, "error")
 		So(eventCorrelationKey, ShouldEqual, "")
@@ -225,7 +225,7 @@ func TestError(t *testing.T) {
 		So(eventData["error"], ShouldHaveSameTypeAs, errors.New(""))
 		So(eventData["error"].(error).Error(), ShouldEqual, "test error")
 
-		logData = Data{ "message": "original message", "error": errors.New("original error")}
+		logData = Data{"message": "original message", "error": errors.New("original error")}
 		ErrorCtx(contextWithRequestHeader, errors.New("test error"), logData)
 		So(eventName, ShouldEqual, "error")
 		So(eventCorrelationKey, ShouldEqual, "request id")
@@ -237,7 +237,7 @@ func TestError(t *testing.T) {
 	})
 
 	Convey("ErrorC", t, func() {
-		logData := Data{ "message": "original message", "error": errors.New("original error")}
+		logData := Data{"message": "original message", "error": errors.New("original error")}
 		ErrorC("correlation id", errors.New("test error"), logData)
 		So(eventName, ShouldEqual, "error")
 		So(eventCorrelationKey, ShouldEqual, "correlation id")
@@ -249,7 +249,7 @@ func TestError(t *testing.T) {
 	})
 
 	Convey("ErrorR", t, func() {
-		logData := Data{ "message": "original message", "error": errors.New("original error")}
+		logData := Data{"message": "original message", "error": errors.New("original error")}
 		req, err := http.NewRequest("GET", "/", nil)
 		So(err, ShouldBeNil)
 
@@ -281,7 +281,7 @@ func TestDebug(t *testing.T) {
 	}
 
 	Convey("Debug", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		Debug("test message", logData)
 		So(eventName, ShouldEqual, "debug")
 		So(eventCorrelationKey, ShouldEqual, "")
@@ -290,14 +290,14 @@ func TestDebug(t *testing.T) {
 	})
 
 	Convey("DebugCtx", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		DebugCtx(context.Background(), "test message", logData)
 		So(eventName, ShouldEqual, "debug")
 		So(eventCorrelationKey, ShouldEqual, "")
 		So(eventData, ShouldContainKey, "message")
 		So(eventData["message"], ShouldEqual, "test message")
 
-		logData = Data{ "message": "original message"}
+		logData = Data{"message": "original message"}
 		DebugCtx(contextWithRequestHeader, "test message", logData)
 		So(eventName, ShouldEqual, "debug")
 		So(eventCorrelationKey, ShouldEqual, "request id")
@@ -306,7 +306,7 @@ func TestDebug(t *testing.T) {
 	})
 
 	Convey("DebugC", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		DebugC("correlation id", "test message", logData)
 		So(eventName, ShouldEqual, "debug")
 		So(eventCorrelationKey, ShouldEqual, "correlation id")
@@ -315,7 +315,7 @@ func TestDebug(t *testing.T) {
 	})
 
 	Convey("DebugR", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		req, err := http.NewRequest("GET", "/", nil)
 		So(err, ShouldBeNil)
 
@@ -344,7 +344,7 @@ func TestTrace(t *testing.T) {
 	}
 
 	Convey("Trace", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		Trace("test message", logData)
 		So(eventName, ShouldEqual, "trace")
 		So(eventCorrelationKey, ShouldEqual, "")
@@ -353,14 +353,14 @@ func TestTrace(t *testing.T) {
 	})
 
 	Convey("TraceCtx", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		TraceCtx(context.Background(), "test message", logData)
 		So(eventName, ShouldEqual, "trace")
 		So(eventCorrelationKey, ShouldEqual, "")
 		So(eventData, ShouldContainKey, "message")
 		So(eventData["message"], ShouldEqual, "test message")
 
-		logData = Data{ "message": "original message"}
+		logData = Data{"message": "original message"}
 		TraceCtx(contextWithRequestHeader, "test message", logData)
 		So(eventName, ShouldEqual, "trace")
 		So(eventCorrelationKey, ShouldEqual, "request id")
@@ -369,7 +369,7 @@ func TestTrace(t *testing.T) {
 	})
 
 	Convey("TraceC", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		TraceC("correlation id", "test message", logData)
 		So(eventName, ShouldEqual, "trace")
 		So(eventCorrelationKey, ShouldEqual, "correlation id")
@@ -378,7 +378,7 @@ func TestTrace(t *testing.T) {
 	})
 
 	Convey("TraceR", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		req, err := http.NewRequest("GET", "/", nil)
 		So(err, ShouldBeNil)
 
@@ -407,7 +407,7 @@ func TestInfo(t *testing.T) {
 	}
 
 	Convey("Info", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		Info("test message", logData)
 		So(eventName, ShouldEqual, "info")
 		So(eventCorrelationKey, ShouldEqual, "")
@@ -416,14 +416,14 @@ func TestInfo(t *testing.T) {
 	})
 
 	Convey("InfoCtx", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		InfoCtx(context.Background(), "test message", logData)
 		So(eventName, ShouldEqual, "info")
 		So(eventCorrelationKey, ShouldEqual, "")
 		So(eventData, ShouldContainKey, "message")
 		So(eventData["message"], ShouldEqual, "test message")
 
-		logData = Data{ "message": "original message"}
+		logData = Data{"message": "original message"}
 		InfoCtx(contextWithRequestHeader, "test message", logData)
 		So(eventName, ShouldEqual, "info")
 		So(eventCorrelationKey, ShouldEqual, "request id")
@@ -432,7 +432,7 @@ func TestInfo(t *testing.T) {
 	})
 
 	Convey("InfoC", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		InfoC("correlation id", "test message", logData)
 		So(eventName, ShouldEqual, "info")
 		So(eventCorrelationKey, ShouldEqual, "correlation id")
@@ -441,7 +441,7 @@ func TestInfo(t *testing.T) {
 	})
 
 	Convey("InfoR", t, func() {
-		logData := Data{ "message": "original message"}
+		logData := Data{"message": "original message"}
 		req, err := http.NewRequest("GET", "/", nil)
 		So(err, ShouldBeNil)
 

@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//go:generate mockgen -destination mock_common/rchttp_client.go github.com/ONSdigital/go-ns/common RCHTTPClienter
+//go:generate mockgen -destination mock_common/rchttp_client.go github.com/methods/go-methods-lib/common RCHTTPClienter
 //go:generate moq -out commontest/rchttp_client.go -pkg commontest . RCHTTPClienter
 
 // RCHTTPClienter provides an interface for methods on an HTTP Client

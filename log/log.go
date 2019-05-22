@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
+	"github.com/methods/go-methods-lib/common"
 	"github.com/mgutz/ansi"
-	"github.com/ofs/go-methods-lib/common"
 )
 
 // Namespace is the service namespace used for logging

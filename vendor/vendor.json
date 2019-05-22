@@ -3,10 +3,10 @@
 	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "WSj2jaJp2epEer5qSp1QnTCJuTg=",
-			"path": "github.com/ONSdigital/go-ns/common",
-			"revision": "38cc63eaa5e94ba6397e740ebbf81b10d9c2373a",
-			"revisionTime": "2018-08-03T12:52:05Z"
+			"checksumSHA1": "KEHLgYW0pAkdgX/ZPXLaH4TSIzY=",
+			"path": "github.com/facebookgo/freeport",
+			"revision": "d4adf43b75b9357dc7775f033e807a3411591522",
+			"revisionTime": "2015-06-12T18:29:05Z"
 		},
 		{
 			"checksumSHA1": "kpDdn8FTTpe3DOSH7qDyfvIIzrY=",
@@ -25,6 +25,12 @@
 			"path": "github.com/jtolds/gls",
 			"revision": "77f18212c9c7edc9bd6a33d383a7b545ce62f064",
 			"revisionTime": "2017-05-03T22:40:06Z"
+		},
+		{
+			"checksumSHA1": "OBvAHqWjdI4NQVAqTkcQAdTuCFY=",
+			"path": "github.com/justinas/alice",
+			"revision": "1051eaf52fcafdd87ead59d28b065f1fcb8274ec",
+			"revisionTime": "2016-09-10T10:38:22Z"
 		},
 		{
 			"checksumSHA1": "jRou8frV+eGk0Cj6benPsxoEDAc=",
@@ -85,7 +91,13 @@
 			"path": "golang.org/x/net/context",
 			"revision": "8a410e7b638dca158bf9e766925842f6651ff828",
 			"revisionTime": "2018-08-25T16:15:26Z"
+		},
+		{
+			"checksumSHA1": "Oqmld6WjJtLzayQIz88UqPhA42k=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "8097e1b27ff5e40620836729a9584e91b094b062",
+			"revisionTime": "2019-05-21T15:16:17Z"
 		}
 	],
-	"rootPath": "github.com/ofs/go-methods-lib"
+	"rootPath": "github.com/methods/go-methods-lib"
 }
